@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/background"
+    android:padding="5dp">
+
+    <mahmud.picosoft.islamiclecturecollection.util.ArtistTextView
+        android:id="@+id/version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Version 2.0.1"/>
+
+    <mahmud.picosoft.islamiclecturecollection.util.ArtistTextView
+        android:id="@+id/dev"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="Developer Mahmudul Hasan Basunia"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:typeface="monospace"
+        android:gravity="center"
+        android:text="mahmud.basunia@gmail.com"/>
+
+    <mahmud.picosoft.islamiclecturecollection.util.ArtistTextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="Authentic Islamic Lecture in Bengali"
+        android:layout_height="wrap_content" />
+    <mahmud.picosoft.islamiclecturecollection.util.ArtistTextView
+        android:id="@+id/copyWright"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="All copy wright of this app is reserved"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

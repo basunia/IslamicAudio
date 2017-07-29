@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:src="@drawable/calli_" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tawhid-er Gurutto"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:typeface="monospace"
+        android:layout_alignTop="@+id/ivImage"
+        android:layout_toRightOf="@+id/ivImage"
+        android:layout_toStartOf="@+id/imageView"
+        android:layout_alignRight="@+id/tvContributor"
+        android:layout_alignEnd="@+id/tvContributor" />
+
+    <mahmud.picosoft.islamiclecturecollection.util.ArtistTextView
+        android:id="@+id/tvContributor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="by Motiur Rahman Madani"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:layout_below="@+id/tvName"
+        android:layout_toRightOf="@+id/ivImage"
+        android:layout_toStartOf="@+id/textView"
+        android:layout_toLeftOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/lectureId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Lecture#001"
+        android:textColor="#808080"
+        android:layout_below="@+id/tvContributor"
+        android:layout_toRightOf="@+id/ivImage"
+        android:layout_toEndOf="@+id/ivImage" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Updated 15 Feb 2015"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#808080"
+        android:layout_below="@+id/tvContributor"
+        android:layout_toRightOf="@+id/lectureId"
+        android:layout_toEndOf="@+id/lectureId"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/star_off"
+        android:background="#808080"
+        android:layout_alignTop="@+id/tvName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/tvContributor"
+        android:layout_toEndOf="@+id/tvContributor" />
+
+    <ImageView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#808080"
+        android:gravity="bottom"
+        android:src="@android:drawable/stat_sys_download"
+        android:layout_alignBottom="@+id/tvTime"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/lecture"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:orderInCategory="100"
+        android:title="lecture List"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/download"
+        android:icon="@drawable/ic_action_download"
+        android:orderInCategory="100"
+        android:title="Download this lecture"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_action_share"
+        android:orderInCategory="100"
+        android:title="Share this App"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/rate"
+        android:icon="@drawable/ic_action_good"
+        android:orderInCategory="100"
+        android:title="Please Rate this App"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/more"
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never" />
+
+
+</menu>
