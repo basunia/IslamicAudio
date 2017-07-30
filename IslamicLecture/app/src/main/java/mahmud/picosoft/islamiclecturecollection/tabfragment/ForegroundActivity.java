@@ -60,13 +60,8 @@ public class ForegroundActivity extends AppCompatActivity {
 
     private int pageNumber;// = 1;
 
-    Intent ii;
-
     boolean isProgressBarLoading = false;
 
-    //LayoutInflater inflater;
-
-    //ViewGroup viewGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,16 +71,6 @@ public class ForegroundActivity extends AppCompatActivity {
 
 
     }
-
-    /*@Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        this.inflater = inflater;
-        this.viewGroup = container;
-        View view = initView(inflater, container);
-        return view;
-    }*/
 
     private void initView() {
 
@@ -322,17 +307,9 @@ public class ForegroundActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("market://details?id=mahmud.picosoft.islamiclecturecollection"));
                 startActivity(intent);
-
-                /*Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://goo.gl/YNeLhY"));
-                startActivity(browserIntent);*/
                 break;
             case R.id.about:
                 startActivity(new Intent(ForegroundActivity.this, AboutActivity.class));
-                /*Intent browserIntent2 = new Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/developer?id=PicoSoft"));
-                startActivity(browserIntent2);*/
                 break;
         }
         return true;

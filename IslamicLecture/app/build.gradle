@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "mahmud.picosoft.islamiclecturecollection"
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 25
         multiDexEnabled true
     }
