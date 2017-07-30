@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_action_good"
         android:title="Please Rate this App"/>
      <item 
-        android:id="@+id/more"
+        android:id="@+id/about"
         android:orderInCategory="100"
         app:showAsAction="never"
         android:title="About"/>

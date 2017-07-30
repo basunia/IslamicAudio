@@ -25,7 +25,7 @@
         android:theme="@style/AppThemeBase">
 
         <activity
-            android:name="mahmud.picosoft.islamiclecturecollection.MainActivity"
+            android:name="mahmud.picosoft.islamiclecturecollection.tabfragment.ForegroundActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -52,13 +52,13 @@
             android:theme="@style/AppThemeBase.NoActionBar"></activity>
         <!-- android:alwaysRetainTaskState="true" -->
         <!-- android:launchMode="singleInstance" -->
-        <!--<activity android:name=".AboutActivity"
+        <activity android:name=".activity.AboutActivity"
             android:theme="@style/AppThemeAbout.NoActionBar"
-            android:parentActivityName=".ForegroundActivity">
+            android:parentActivityName=".tabfragment.ForegroundActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ForegroundActivity" />
-        </activity>-->
+                android:value=".tabfragment.ForegroundActivity" />
+        </activity>
 
         <service
             android:name="mahmud.picosoft.islamiclecturecollection.service.MyPlayService"

@@ -19,13 +19,19 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.ParseException;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -38,12 +44,13 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import mahmud.picosoft.islamiclecturecollection.BaseFragment;
+import mahmud.picosoft.islamiclecturecollection.activity.AboutActivity;
 import mahmud.picosoft.islamiclecturecollection.adapter.ActorAdapter;
 import mahmud.picosoft.islamiclecturecollection.pojo.Actors;
 import mahmud.picosoft.islamiclecturecollection.activity.LecturesList;
 import mahmud.picosoft.islamiclecturecollection.R;
 
-public class ForegroundActivity extends BaseFragment {
+public class ForegroundActivity extends AppCompatActivity {
 
     ArrayList<Actors> actorsList;
 
@@ -57,20 +64,20 @@ public class ForegroundActivity extends BaseFragment {
 
     boolean isProgressBarLoading = false;
 
-    LayoutInflater inflater;
+    //LayoutInflater inflater;
 
-    ViewGroup viewGroup;
+    //ViewGroup viewGroup;
 
-    /*@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initView();
 
 
-    }*/
+    }
 
-    @Nullable
+    /*@Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -78,9 +85,9 @@ public class ForegroundActivity extends BaseFragment {
         this.viewGroup = container;
         View view = initView(inflater, container);
         return view;
-    }
+    }*/
 
-    private View initView(LayoutInflater inflater, ViewGroup container) {
+    private void initView() {
 
 
         if (!isNetworkAvailable()) {
@@ -88,24 +95,24 @@ public class ForegroundActivity extends BaseFragment {
         } else {
 
             //set the main view
-            //setContentView(R.layout.activity_main);
-            final View view = inflater.inflate(R.layout.activity_main, container, false);;
-            /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setContentView(R.layout.activity_main);
+            //final View view = inflater.inflate(R.layout.activity_main, container, false);;
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             try {
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 getSupportActionBar().setIcon(R.drawable.icon2);
             } catch (NullPointerException e) {
                 e.printStackTrace();
-            }*/
+            }
 
             actorsList = new ArrayList<Actors>();
             //page number for server pagination
             pageNumber = 1;
             getDataFromServer();
 
-            ListView listview = (ListView) view.findViewById(R.id.list);
-            adapter = new ActorAdapter(getActivity(), R.layout.single_row,
+            ListView listview = (ListView) findViewById(R.id.list);
+            adapter = new ActorAdapter(this, R.layout.row,
                     actorsList);
 
             listview.setAdapter(adapter);
@@ -114,7 +121,7 @@ public class ForegroundActivity extends BaseFragment {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1,
                                         int position, long id) {
-                    Intent i = new Intent(getActivity(),
+                    Intent i = new Intent(ForegroundActivity.this,
                             LecturesList.class);
                     i.putExtra("positionRow", actorsList.get(position).getLink());
                     i.putExtra("lecture", actorsList.get(position).getName());
@@ -123,23 +130,19 @@ public class ForegroundActivity extends BaseFragment {
                 }
             });
 
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (isNetworkAvailable()) {
                         getDataFromServer();
                     } else {
-                        Toast.makeText(getActivity(), "Internet connection lost!!!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForegroundActivity.this, "Internet connection lost!!!", Toast.LENGTH_LONG).show();
                     }
 
                 }
             });
-
-            return view;
         }
-
-        return null;
 
     }
 
@@ -161,7 +164,7 @@ public class ForegroundActivity extends BaseFragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog = new ProgressDialog(getActivity());
+            dialog = new ProgressDialog(ForegroundActivity.this);
             dialog.setMessage("Loading, please wait");
             dialog.setTitle("Connecting server");
             dialog.show();
@@ -227,7 +230,7 @@ public class ForegroundActivity extends BaseFragment {
             }
             else { //if (!result) {
                 //pageNumber -- ;
-                Toast.makeText(getActivity(), "Seems to reach at the end of the list!!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(ForegroundActivity.this, "Seems to reach at the end of the list!!!", Toast.LENGTH_LONG).show();
             }
 
         }
@@ -235,7 +238,7 @@ public class ForegroundActivity extends BaseFragment {
 
     private boolean isNetworkAvailable() {
 
-        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
                 .isConnectedOrConnecting()
@@ -248,37 +251,37 @@ public class ForegroundActivity extends BaseFragment {
 
     private void showNetworkErrorMessage() {
 
-        LinearLayout layout = new LinearLayout(getActivity());
+        LinearLayout layout = new LinearLayout(this);
         layout.setGravity(Gravity.CENTER);
         layout.setPadding(5, 5, 5, 5);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        ImageView imageView = new ImageView(getActivity());
+        ImageView imageView = new ImageView(this);
         imageView.setImageResource(R.drawable.icon2);
         layout.addView(imageView);
 
-        TextView textView = new TextView(getActivity());
+        TextView textView = new TextView(this);
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(60);
-        textView.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "font/always.ttf"));
+        textView.setTypeface(Typeface.createFromAsset(this.getAssets(), "font/always.ttf"));
 
         textView.setPadding(0, 12, 0, 12);
         textView.setText("Make sure you have an internet connection.");
         layout.addView(textView);
 
-        Button b = new Button(getActivity());
+        Button b = new Button(this);
         b.setWidth(80);
         b.setText("RETRY...");
-        b.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "font/always.ttf"));
+        b.setTypeface(Typeface.createFromAsset(this.getAssets(), "font/always.ttf"));
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initView(inflater, viewGroup);
+                initView();
             }
         });
         layout.addView(b);
 
-        getActivity().setContentView(layout);
+        this.setContentView(layout);
     }
 
     /*@Override
@@ -291,7 +294,7 @@ public class ForegroundActivity extends BaseFragment {
         }
 
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -319,19 +322,19 @@ public class ForegroundActivity extends BaseFragment {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("market://details?id=mahmud.picosoft.islamiclecturecollection"));
                 startActivity(intent);
-                *//*Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("http://goo.gl/YNeLhY"));
-                startActivity(browserIntent);*//*
+                startActivity(browserIntent);
                 break;
-            case R.id.more:
+            case R.id.about:
                 startActivity(new Intent(ForegroundActivity.this, AboutActivity.class));
-                *//*Intent browserIntent2 = new Intent(
+                /*Intent browserIntent2 = new Intent(
                         Intent.ACTION_VIEW,
                         Uri.parse("https://play.google.com/store/apps/developer?id=PicoSoft"));
-                startActivity(browserIntent2);*//*
+                startActivity(browserIntent2);*/
                 break;
         }
         return true;
-    }*/
+    }
 
 }

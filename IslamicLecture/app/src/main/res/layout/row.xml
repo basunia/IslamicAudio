@@ -48,7 +48,7 @@
                 android:id="@+id/tvContributor"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
+                android:gravity="end"
                 android:text="by Motiur Rahman Madani"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -80,28 +80,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:background="#bab1b2"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:layout_weight="1"
-                app:srcCompat="@android:drawable/star_on" />
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:src="@android:drawable/stat_sys_download" />
-        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        pagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
+        /*pagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(new ForegroundActivity(), "Lecture");
         pagerAdapter.addFragment(new FavoriteFragment(), "Favorite");
-        pagerAdapter.addFragment(new DownloadFragment(), "Download");
+        pagerAdapter.addFragment(new DownloadFragment(), "Download");*/
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(pagerAdapter);
