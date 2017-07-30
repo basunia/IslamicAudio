@@ -273,12 +273,12 @@ public class LecturesList extends AppCompatActivity implements OnSeekBarChangeLi
                 // sendBroadcast(pauseIntent);
                 stopMyPlayService();
                 buffer.setText("");
-                lectureName.setText("Select a lecture from lecture list");
+                /*lectureName.setText("Select a lecture from lecture list");
                 // save the lecture title name
                 SharedPreferences.Editor editor = someData.edit();
                 editor.putString("sharedData",
                         "Select a lecture from lecture list");
-                editor.commit();
+                editor.commit();*/
 
             }
         });

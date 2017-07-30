@@ -322,9 +322,10 @@ public class ForegroundActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("market://details?id=mahmud.picosoft.islamiclecturecollection"));
                 startActivity(intent);
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+
+                /*Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("http://goo.gl/YNeLhY"));
-                startActivity(browserIntent);
+                startActivity(browserIntent);*/
                 break;
             case R.id.about:
                 startActivity(new Intent(ForegroundActivity.this, AboutActivity.class));
